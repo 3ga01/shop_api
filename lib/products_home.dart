@@ -15,7 +15,14 @@ class ProductsHomeView extends StatefulWidget {
 class _ProductsHomeViewState extends State<ProductsHomeView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text("Flex Mart"),
+        backgroundColor: Colors.deepPurpleAccent,
+      ),
+      body: FutureBuilder(builder: ((context, snapshot) {})),
+    );
   }
 
   Future<List<ProductsModule>> getAllProducts() async {
