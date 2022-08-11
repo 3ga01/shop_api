@@ -13,7 +13,18 @@ class ProductsHomeView extends StatefulWidget {
 }
 
 class _ProductsHomeViewState extends State<ProductsHomeView> {
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getAllProducts();
+  
+  }
+
   @override
+  
+  
+  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -21,7 +32,22 @@ class _ProductsHomeViewState extends State<ProductsHomeView> {
         title: Text("Flex Mart"),
         backgroundColor: Colors.deepPurpleAccent,
       ),
-      body: FutureBuilder(builder: ((context, snapshot) {})),
+      body: FutureBuilder(future: getAllProducts(),
+        builder: ((context, snapshot) {
+        if (snapshot.hasData) {
+          return ListView.builder(itemBuilder: ((conext, index) {
+            return Card(
+              child: Column(children: [
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(image: NetworkImage(snapshot.data[].))
+                  ),
+                )
+              ]),
+            );
+          }));
+        }
+      })),
     );
   }
 
