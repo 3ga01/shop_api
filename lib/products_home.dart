@@ -32,21 +32,22 @@ class _ProductsHomeViewState extends State<ProductsHomeView> {
           future: getAllProducts(),
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
-                  itemCount: snapshot.data!.length,
-                  itemBuilder: ((conext, index) {
-                    return Card(
-                      child: Column(children: [
-                        Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      snapshot.data[index].images[0]))),
-                        )
-                      ]),
-                    );
-                  }));
+              return ListView.builder(itemBuilder: ((conext, index) {
+                return Card(
+                  child: Column(children: [
+                    Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  snapshot.data![index].images![0]))),
+                    )
+                  ]),
+                );
+              }));
+            } else {
+              CircularProgressIndicator;
             }
+            return Container();
           })),
     );
   }
