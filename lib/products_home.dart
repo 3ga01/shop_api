@@ -33,15 +33,17 @@ class _ProductsHomeViewState extends State<ProductsHomeView> {
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(itemBuilder: ((conext, index) {
-                return Card(
-                  child: Column(children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                  snapshot.data![index].images![0]))),
-                    )
-                  ]),
+                return SizedBox(height: 250,
+                  child: Card(
+                    child: Column(children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: NetworkImage(
+                                    snapshot.data![index].images![0]))),
+                      )
+                    ]),
+                  ),
                 );
               }));
             } else {
